@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VANS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;500;700;800&display=swap" >
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<link rel="stylesheet" href="css/vans.css">
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+$(function(){
+    const mainSwiper = new Swiper(".mainSwiper", {
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+        },
+        pagination: {
+        el: ".swiper-pagination",
+        }
+    });
+    const subSwiper = new Swiper(".subSwiper", {
+        loop: true,
+        loopAdditionalSlides: 1,
+        slidesPerView: 1,
+        centeredSlides: true,
+        autoplay: {
+            delay: 0
+        },
+        speed: 6000,
+    });
+
+    $("#gnb .gnb_inner > ul > li").hover(function(){
+    if($(this).children().length == 2) {
+        $("#gnb .gnb_inner > ul > li").removeClass("on");
+        $(this).addClass("on");
+        $("#gnb .gnb_inner > ul > li").removeClass("active");
+        $(this).addClass("active");
+        $("#gnb .dum").addClass("active");
+    }
+    else {
+        $("#gnb .gnb_inner > ul > li").removeClass("on");
+        $(this).addClass("on");
+        $("#gnb .dum").removeClass("active");
+    }
+    },
+    function(){
+        $(this).removeClass("on");
+        $(this).removeClass("active");
+        $("#gnb .dum").removeClass("active");
+    });
+    $("#gnb .gnb_inner > ul > li > a").focusin(function(){
+        if($(this).next().length == 1){
+            $("#gnb .gnb_inner > ul > li").removeClass("on");
+            $(this).parent().addClass("on");
+
+            $("#gnb .gnb_inner > ul > li").removeClass("active");
+            $(this).parent().addClass("active");
+            $("#gnb .dum").addClass("active");
+        }
+        else {
+            $("#gnb .gnb_inner > ul > li").removeClass("active");
+            $(this).parent().addClass("active");
+            // $("#gnb .gnb_inner > ul > li").removeClass("active");
+            $("#gnb .dum").removeClass("active");      
+        }
+    });
+
+    $("#gnb ul ul.twoDepth li:last-child ul.threeDepth li:last-child").focusout(function(){
+    if($("#gnb .gnb_inner > ul > li > a").next().length == 1) {
+        $("#gnb .gnb_inner > ul > li").removeClass("active");
+        $("#gnb .gnb_inner > ul > li").removeClass("on");
+    }
+    else {
+        $("#gnb .gnb_inner > ul > li").removeClass("on");
+    }
+    });
+    $("#gnb li ul.twoDepth li a").focusin(function(){
+        $(this).parent().addClass("on");
+    });
+    $("#gnb li ul.threeDepth li:last-child a").focusout(function(){
+        $("#gnb li ul.twoDepth li").removeClass("on");
+    });
+});
+</script>
+</head>
+<body>
+<div class="container">
+    <div id="header">
+        <div class="header_top">
+            <div class="sns">
+                <ul>
+                    <li><a href="" class="facebook"><img src="images/facebook_ico.png" alt="facebook"></a></li>
+                    <li><a href="" class="naver"><img src="images/naver_ico.png" alt="naver"></a></li>
+                    <li><a href="" class="kakao"><img src="images/kakao_ico.png" alt="kakaoplus"></a></li>
+                    <li><a href="" class="instagram"><img src="images/instagram_ico.png" alt="instagram"></a></li>
+                </ul>
+            </div>
+            <h1><a href="" class="logo"><img src="images/logo_main.png" alt="vans"></a></h1>
+            <div class="utils">
+                <ul>
+                    <li><a href="" class="login">LOGIN</a></li>
+                    <li><a href="" class="location">매장찾기</a></li>
+                    <li><a href="" class="service">고객센터</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        <nav id="gnb">
+            <div class="gnb_inner">
+            <div class="dum"></div>
+                <ul> <!--1depth-->
+                    <li><a href="">NEW</a>
+                        <ul class="twoDepth"> <!--2depth-->
+                            <li>
+                                <a href=""><span>NEW</span></a>
+                                <ul class="threeDepth"> <!--3depth-->
+                                    <li><a href="">NEW</a></li>
+                                    <li><a href="">신발 신상품</a></li>
+                                    <li><a href="">의류 신상품</a></li>
+                                    <li><a href="">액세서리 신상품</a></li>
+                                    <li><a href="">키즈신상품</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href=""><span>COLLECTION</span></a>
+                                <ul class="threeDepth">
+                                    <li><a href="">신년 특가 최대 72%</a></li>
+                                    <li><a href="">Tokyo Design Collective</a></li>
+                                    <li><a href="">VANS x NBHD</a></li>
+                                    <li><a href="">겨울 신발 제품</a></li>
+                                    <li><a href="">우수한 보온&방수 기능, MTE-3</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href=""><span>CUSTOMS</span></a>
+                                <ul class="threeDepth">
+                                    <li><a href="">DISNEY X VANS</a></li>
+                                    <li><a href="">PINK VIBE</a></li>
+                                    <li><a href="">NEW SEASON, NEW SWATCH</a></li>
+                                </ul>
+                            </li>
+                            
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">MEN</a>
+                                <ul class="twoDepth"> <!--2depth-->
+                                    <li>
+                                        <a href=""><span>신발</span></a>
+                                        <ul class="threeDepth"> <!--3depth-->
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">코어클래식</a></li>
+                                            <li><a href="">클래식</a></li>
+                                            <li><a href="">스케이트 슈즈</a></li>
+                                            <li><a href="">클래식플러스</a></li>
+                                            <li><a href="">서프</a></li>
+                                            <li><a href="">VAULT</a></li>
+                                            <li><a href="">스노우</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>의류</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">탑 & 티셔츠</a></li>
+                                            <li><a href="">플리스</a></li>
+                                            <li><a href="">아우터</a></li>
+                                            <li><a href="">하의</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>액세서리</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">모자</a></li>
+                                            <li><a href="">가방</a></li>
+                                            <li><a href="">양말</a></li>
+                                            <li><a href="">기타</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>WHAT'S HOT</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">베스트 셀러</a></li>
+                                            <li><a href="">뉴 스쿨 & 뉴 슬립</a></li>
+                                            <li><a href="">울트라레인지</a></li>
+                                            <li><a href="">컴피쿠시</a></li>
+                                            <li><a href="">온라인 단독</a></li>
+                                            <li><a href="">컬러 띠어리 컬렉션</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                    </li>
+                    <li><a href="">WOMEN</a>
+                                <ul class="twoDepth"> <!--2depth-->
+                                    <li>
+                                        <a href=""><span>신발</span></a>
+                                        <ul class="threeDepth"> <!--3depth-->
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">코어클래식</a></li>
+                                            <li><a href="">클래식</a></li>
+                                            <li><a href="">스케이트 슈즈</a></li>
+                                            <li><a href="">클래식플러스</a></li>
+                                            <li><a href="">서프</a></li>
+                                            <li><a href="">VAULT</a></li>
+                                            <li><a href="">스노우</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>의류</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">탑 & 티셔츠</a></li>
+                                            <li><a href="">플리스</a></li>
+                                            <li><a href="">아우터</a></li>
+                                            <li><a href="">하의</a></li>
+                                            <li><a href="">원피스 & 스커트</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>액세서리</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">모자</a></li>
+                                            <li><a href="">가방</a></li>
+                                            <li><a href="">양말</a></li>
+                                            <li><a href="">기타</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>WHAT'S HOT</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">베스트 셀러</a></li>
+                                            <li><a href="">뉴 스쿨 & 뉴 슬립</a></li>
+                                            <li><a href="">울트라레인지</a></li>
+                                            <li><a href="">컴피쿠시</a></li>
+                                            <li><a href="">온라인 단독</a></li>
+                                            <li><a href="">컬러 띠어리 컬렉션</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                    </li>
+                    <li><a href="">KIDS</a>
+                                <ul class="twoDepth"> <!--2depth-->
+                                    <li>
+                                        <a href=""><span>신발</span></a>
+                                        <ul class="threeDepth"> <!--3depth-->
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">토들러</a></li>
+                                            <li><a href="">키즈</a></li>
+                                            <li><a href="">베스트 셀러</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>의류</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">보이즈 & 걸즈</a></li>
+                                            <li><a href="">키즈</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>액세서리</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">전체보기</a></li>
+                                            <li><a href="">모자</a></li>
+                                            <li><a href="">양말</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>CUSTOMS</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">커스텀 하기</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                    </li>
+                    <li><a href="">MORE</a>
+
+                                <ul class="twoDepth"> <!--2depth-->
+                                    <li>
+                                        <a href=""><span>CUSTOMS</span></a>
+                                        <ul class="threeDepth"> <!--3depth-->
+                                            <li><a href="">나만의 신발 만들기</a></li>
+                                            <li><a href="">어센틱 커스텀</a></li>
+                                            <li><a href="">슬립온 커스텀</a></li>
+                                            <li><a href="">올드스쿨 커스텀</a></li>
+                                            <li><a href="">에라 커스텀</a></li>
+                                            <li><a href="">스케이트-하이 커스텀</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href=""><span>FEATURED</span></a>
+                                        <ul class="threeDepth">
+                                            <li><a href="">DISNEY X VANS</a></li>
+                                            <li><a href="">PINK VIBE</a></li>
+                                            <li><a href="">NEW SEASON, NEW SWATCH</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                    </li>
+                    <li><a href="">SKATEBOARDING</a></li>
+                    <li><a href="">LAUNCHING CALENDAR</a></li>
+                    <li><a href="" ><span>SALE</span></a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+    <!-- slider -->
+    <div id="main_slider">
+        <div class="main_slider mainSwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="images/slider1.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/slider2.png" alt=""></div>
+                <div class="swiper-slide"><img src="images/slider3.png" alt=""></div>
+            </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+
+    <div id="section">
+        <div class="sec_top">
+            <a href="" class="img"><img src="images/tdc_pic.png" alt="tokyo_design_collective"></a>
+            <a href="" class="text">
+                <div class="inner">
+                    <h4>Tokyo Design Collective</h4>
+                    <p>전 BEAMS 디렉터가 참여한 <br> ‘도쿄 디자인 컬렉티브’ 라인</p>
+                    <span class="btn">구매하기</span>
+                </div>
+            </a>
+        </div>
+
+        <div class="sec_mid">
+            <a href="" class="text">
+                <div class="inner">
+                    <h4>KNU FRANCHISE</h4>
+                    <p>시즌에 맞춰 새롭게 출시되는<br>
+                        뉴스쿨 컬렉션</p>
+                    <span class="btn">구매하기</span>
+                </div>
+            </a>
+            <a href="" class="img"><img src="images/knu_pic.png" alt="KNU_FRANCHISE"></a>
+        </div>
+
+        <div class="sec_bottom">
+            <div class="sec_bottom_left">
+                <a href="" class="left_top">
+                    <img class="gift" src="images/gift_bg.png" alt="">
+                        <div class="decoration">
+                            <img class="star1" src="images/star1.png" alt="">
+                            <img class="star2" src="images/star2.png" alt="">
+                            <img class="star3" src="images/star3.png" alt="">
+                            <img class="shoes" src="images/gift_shoes.png" alt="">                            
+                        </div>
+                    <div class="text">
+                        <h4>GIFT CLASSIC</h4>
+                        <p>베스트 상품들을 선물하세요</p>
+                        <span class="btn">구매하기</span>
+                    </div>
+                </a>
+                <a href="" class="left_bottom">
+                        <img src="images/custom_bg.png" alt="">
+                            
+                        <div class="text">
+                            <img class="logo" src="images/custom_logo.png" alt="custom">
+                            <p>세상에 하나뿐인 나만의 신발을 만들어보세요.</p>
+                            <span class="btn">커스텀하기<img src="images/custom_ico.png" alt=""></span>
+                        </div>
+                </a>
+                </div>
+            <div class="sec_bottom_right">
+                <a href="" class="right_top">
+                    <div class="sale">
+                    <img src="images/sale_bg.png" alt="">
+                    <div class="text">
+                        <h4>SALE</h4>
+                        <p>연말특가 최대 50%</p>
+                        <span class="btn">구매하기</span>
+                    </div>
+                </div>
+                </a>
+                <a href="" class="right_bottom">
+                    <div id="sub_slider">
+                        <img src="images/skatingboard_bg.png" alt="">
+                        <div class="test1">
+                        <div class="sub_slider subSwiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="test2">
+                            <div class="sub_slider subSwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                </div>
+                            </div>
+                            </div>
+                    
+                        <div class="test3">
+                            <div dir="rtl" class="sub_slider subSwiper">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                    <div class="swiper-slide"><img src="images/skatingboard_line.png" alt=""></div>
+                                </div>
+                            </div>
+                            </div>
+                    <div class="text">
+                        <h4>SKATINGBOARD</h4>
+                        <p>“Did you see that guy get off the wall?”</p>
+                        <span class="btn">더 알아보기</span>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footer_inner">
+        <nav class="footer">
+            <ul>
+                <li><a href="">ABOUT</a></li>
+                <li><a href="">SHOPPING</a></li>
+                <li><a href="">LEGAL</a></li>
+            </ul>
+        </nav>
+        <a href="" class="ft_logo"><img src="images/logo_ft.png" alt="vans"></a>
+        <p class="copyright">
+            유한책임회사 <span>브이에프코리아</span> 서울특별시 강남구 테헤란로 317 동훈타워 18층 <br>ⓒ유한책임회사 브이에프코리아. All Rights Reserved. California Transparency in Supply Chain Act of 2010
+        </p>
+    </div>
+</div>
+</body>
+</html>
