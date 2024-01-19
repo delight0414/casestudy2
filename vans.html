@@ -12,81 +12,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script>
-$(function(){
-    const mainSwiper = new Swiper(".mainSwiper", {
-        navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev"
-        },
-        pagination: {
-        el: ".swiper-pagination",
-        }
-    });
-    const subSwiper = new Swiper(".subSwiper", {
-        loop: true,
-        loopAdditionalSlides: 1,
-        slidesPerView: 1,
-        centeredSlides: true,
-        autoplay: {
-            delay: 0
-        },
-        speed: 6000,
-    });
+<script src="JS/VANS.js"></script>
 
-    $("#gnb .gnb_inner > ul > li").hover(function(){
-    if($(this).children().length == 2) {
-        $("#gnb .gnb_inner > ul > li").removeClass("on");
-        $(this).addClass("on");
-        $("#gnb .gnb_inner > ul > li").removeClass("active");
-        $(this).addClass("active");
-        $("#gnb .dum").addClass("active");
-    }
-    else {
-        $("#gnb .gnb_inner > ul > li").removeClass("on");
-        $(this).addClass("on");
-        $("#gnb .dum").removeClass("active");
-    }
-    },
-    function(){
-        $(this).removeClass("on");
-        $(this).removeClass("active");
-        $("#gnb .dum").removeClass("active");
-    });
-    $("#gnb .gnb_inner > ul > li > a").focusin(function(){
-        if($(this).next().length == 1){
-            $("#gnb .gnb_inner > ul > li").removeClass("on");
-            $(this).parent().addClass("on");
-
-            $("#gnb .gnb_inner > ul > li").removeClass("active");
-            $(this).parent().addClass("active");
-            $("#gnb .dum").addClass("active");
-        }
-        else {
-            $("#gnb .gnb_inner > ul > li").removeClass("active");
-            $(this).parent().addClass("active");
-            // $("#gnb .gnb_inner > ul > li").removeClass("active");
-            $("#gnb .dum").removeClass("active");      
-        }
-    });
-
-    $("#gnb ul ul.twoDepth li:last-child ul.threeDepth li:last-child").focusout(function(){
-    if($("#gnb .gnb_inner > ul > li > a").next().length == 1) {
-        $("#gnb .gnb_inner > ul > li").removeClass("active");
-        $("#gnb .gnb_inner > ul > li").removeClass("on");
-    }
-    else {
-        $("#gnb .gnb_inner > ul > li").removeClass("on");
-    }
-    });
-    $("#gnb li ul.twoDepth li a").focusin(function(){
-        $(this).parent().addClass("on");
-    });
-    $("#gnb li ul.threeDepth li:last-child a").focusout(function(){
-        $("#gnb li ul.twoDepth li").removeClass("on");
-    });
-});
-</script>
 </head>
 <body>
 <div class="container">
@@ -367,13 +294,13 @@ $(function(){
                         <span class="btn">구매하기</span>
                     </div>
                 </a>
-                <a href="" class="left_bottom">
+                    <a href="" class="left_bottom">
                         <img src="images/custom_bg.png" alt="">
                             
                         <div class="text">
                             <img class="logo" src="images/custom_logo.png" alt="custom">
                             <p>세상에 하나뿐인 나만의 신발을 만들어보세요.</p>
-                            <span class="btn">커스텀하기<img src="images/custom_ico.png" alt=""></span>
+                            <span class="btn">커스텀하기<img src="images/custom_" alt=""></span>
                         </div>
                 </a>
                 </div>
